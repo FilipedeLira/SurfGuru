@@ -1,0 +1,17 @@
+# Dependências
+node_modules/
+
+# Arquivos gerados pelo Cypress
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# Logs
+*.log
+
+# Configurações locais
+.vscode/
