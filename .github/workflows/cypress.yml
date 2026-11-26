@@ -1,16 +1,54 @@
-name: Cypress QA
-on: [push, pull_request, workflow_dispatch]
+name: Cypress QA - SurfGuru
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
 jobs:
-  e2e:
+  validacao:
+    name: Validacao do codigo
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install
-      - run: npm test
-      - uses: actions/upload-artifact@v4
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Validar sintaxe JavaScript
+        run: |
+          node --check cypress.config.js
+          find cypress/e2e -name "*.cy.js" -exec node --check {} \;
+
+  e2e:
+    name: Testes automatizados E2E
+    needs: validacao
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Executar testes Cypress
+        run: npm test
+
+      - name: Salvar evidencias de falhas
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
