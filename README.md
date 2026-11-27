@@ -5,7 +5,7 @@
 - **Instituição:** UNIESP — Centro Universitário
 - **Curso:** Sistemas para Internet
 - **Área:** Quality Assurance (QA)
-- **Integrantes:** Filipe Durand e Clecinha
+- **Integrantes:** Filipe Durand e Janiclecia Coelho
 
 ## 1. Objetivo do projeto
 
