@@ -112,7 +112,7 @@ Executar os testes de Filipe:
 
 `npx cypress run --spec "cypress/e2e/filipe.cy.js"`
 
-Executar os testes de Clecinha:
+Executar os testes de Janiclecia:
 
 `npx cypress run --spec "cypress/e2e/clecinha.cy.js"`
 
@@ -166,7 +166,7 @@ O projeto utiliza branches específicas para organizar as contribuições dos in
 
 - main — branch principal.
 - feature/testes-filipe — CT01 a CT05.
-- feature/testes-clecinha — CT06 a CT10, publicação planejada.
+- feature/testes-janiclecia — CT06 a CT10, publicação planejada.
 
 A integração das contribuições é realizada por meio de Pull Requests, permitindo rastreabilidade, revisão e acompanhamento das alterações.
 
